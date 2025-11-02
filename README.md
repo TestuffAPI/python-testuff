@@ -22,8 +22,8 @@ pip install git+https://github.com/TestuffAPI/python-testuff.git
 After installing the package, run this script to verify installation and basic functionality:
 
 ```python
-from python_testuff.client import TestuffClient
-from python_testuff.models import Test
+from testuff.client import TestuffClient
+from testuff.models import Test
 
 # Initialize client (replace with actual parameters)
 client = TestuffClient(email="LOGIN", password="PASSWORD", base_url="https://service2.testuff.com")
@@ -39,7 +39,7 @@ else:
     print(first_test)
 ```
 
-## Public Methods for each Model
+## Public Methods for TestuffClient
 - get_token(self) 
 - get_by_id(self, model_cls, id)
 - get(self, model_cls, **params)
@@ -47,9 +47,8 @@ else:
 - add_automation(self, **params)
 - save(self, model_cls, id, **params)
 - delete(self, model_cls, id)
-- model_cls.get_help()
 
-## Public Objects in TestuffClient
+## Public Objects in Testuff SDK
 - Test: Test script details
 - Run: Test execution instance
 - Defect: Defect details
@@ -66,16 +65,16 @@ else:
 - Requirement: Includes list of Tests
 - Lab: Includes list of Runs
 
-### Using `get_help()` Method
+### Using `print_help()` Method
 
-Each model class in this SDK provides a class method named `get_help()` that prints a summary of valid fields for initialization and allowed query parameters. This method is useful to explore model properties without browsing external documentation.
+Each model class in this SDK provides a class method named `print_help()` that prints a summary of valid fields for initialization and allowed query parameters. This method is useful to explore model properties without browsing external documentation.
 
 Example usage:
 ```python
 #This method helps in interactive exploration and debugging of data classes.
-from pythontestuff.models import Test
+from testuff.models import Test
 
-Test.get_help()
+Test.print_help()
 ```
 
 Expected output:
