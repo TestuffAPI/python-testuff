@@ -41,7 +41,7 @@ class TestuffClient:
         if params:
             attrs = {k: v for k, v in params.items() if k in getattr(model_cls, "ALLOWED_PARAMS", set())}
                 
-        mapping = getattr(model_cls, "_param_mapping", set())
+        mapping = getattr(model_cls, "_param_mapping", dict())
         attrs = {mapping.get(k) or k:v for k, v in attrs.items()} 
         while url:
             response = requests.get(url, headers=self.headers, auth=self.auth, params=attrs)
