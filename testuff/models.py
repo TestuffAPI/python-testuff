@@ -84,6 +84,8 @@ class BaseModel:
 
 @dataclass
 class Test(BaseModel):
+    __test__ = False
+
     # Mandatory: no default
     suite_id: str
     summary: str

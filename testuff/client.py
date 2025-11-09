@@ -5,6 +5,8 @@ from .models import Test, User, Project, Suite, Run, Lab, Requirement, Defect
 API = "api/v0"
 
 class TestuffClient:
+    __test__ = False
+
     def __init__(self, email, password, base_url="https://service2.testuff.com"):
         self.auth = HTTPBasicAuth(email, password)
         self.base_url = base_url
