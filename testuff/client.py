@@ -5,6 +5,8 @@ from .models import Test, User, Project, Suite, Run, Lab, Requirement, Defect
 API = "api/v0"
 
 class TestuffClient:
+    __test__ = False
+
     def __init__(self, email, password, base_url="https://service2.testuff.com"):
         self.auth = HTTPBasicAuth(email, password)
         self.base_url = base_url
@@ -41,7 +43,7 @@ class TestuffClient:
         if params:
             attrs = {k: v for k, v in params.items() if k in getattr(model_cls, "ALLOWED_PARAMS", set())}
                 
-        mapping = getattr(model_cls, "_param_mapping", set())
+        mapping = getattr(model_cls, "_param_mapping", dict())
         attrs = {mapping.get(k) or k:v for k, v in attrs.items()} 
         while url:
             response = requests.get(url, headers=self.headers, auth=self.auth, params=attrs)
