@@ -286,7 +286,7 @@ class Lab(BaseModel):
     # ReadOnly: with defauls 
     start_date: Optional[str] = None
 
-    API_ENDPOINT = "suite"
+    API_ENDPOINT = "lab"
     ALLOWED_PARAMS = ["id", "name", "name_icontains", "branch_id", "parent_id"]
     FIELDS_READ_ONLY = ['start_date']
     
